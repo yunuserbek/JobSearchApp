@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".MainFragment">
+    tools:context=".ui.MainFragment">
     <com.ogaclejapan.smarttablayout.SmartTabLayout
         android:id="@+id/viewpagertab"
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         app:stl_defaultTabTextColor="@color/black"
         app:stl_defaultTabTextHorizontalPadding="16dp"
         app:stl_defaultTabTextMinWidth="0dp"
-        app:stl_defaultTabTextSize="16sp"
+        app:stl_defaultTabTextSize="13sp"
         app:stl_distributeEvenly="true"
         app:stl_dividerThickness="1dp"
         app:stl_drawDecorationAfterTab="false"
@@ -30,10 +30,10 @@
         app:stl_indicatorThickness="3dp"
         app:stl_indicatorWidth="auto"
         app:stl_indicatorWithoutPadding="false"
-        app:stl_overlineColor="#4D000000"
+        app:stl_overlineColor="#4DDD097E"
         app:stl_overlineThickness="0dp"
         app:stl_titleOffset="24dp"
-        app:stl_underlineColor="#4D000000"
+        app:stl_underlineColor="#77A5BA"
         app:stl_underlineThickness="3dp" />
 
     <androidx.viewpager.widget.ViewPager
