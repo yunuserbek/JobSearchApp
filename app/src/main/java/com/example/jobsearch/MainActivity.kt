@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.jobsearch.databinding.ActivityMainBinding
+import com.example.jobsearch.db.FavoriteJobDatabase
 import com.example.jobsearch.models.repository.JobRepository
 import com.example.jobsearch.models.viewmodel.RemoteJobViewModel
 import com.example.jobsearch.models.viewmodel.RemoteJobViewModelFactory
@@ -21,7 +22,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpViewModel() {
-        val remotejobrepository = JobRepository()
+        val remotejobrepository = JobRepository(
+            FavoriteJobDatabase(this)
+        )
         val viewModelProviderFactory = RemoteJobViewModelFactory(application,remotejobrepository)
         viewModel = ViewModelProvider(this,viewModelProviderFactory).get(RemoteJobViewModel::class.java)
     }
