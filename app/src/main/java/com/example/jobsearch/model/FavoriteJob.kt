@@ -1,17 +1,15 @@
-package com.example.jobsearch.models
+package com.example.jobsearch.model
 
 
-import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
 
-@Parcelize
+
 @Entity(tableName = "fav_job")
-data class Job(
+data class FavoriteJob(
     @PrimaryKey(autoGenerate = true)
-    val idd:Int,
+    val id:Int,
     @SerializedName("candidate_required_location")
     val candidateRequiredLocation: String?,
     @SerializedName("category")
@@ -36,4 +34,4 @@ data class Job(
     val title: String?,
     @SerializedName("url")
     val url: String?
-):Parcelable
+)

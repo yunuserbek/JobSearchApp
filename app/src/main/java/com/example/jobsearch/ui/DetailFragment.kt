@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.jobsearch.MainActivity
 import com.example.jobsearch.databinding.FragmentDetailBinding
-import com.example.jobsearch.models.Job
+import com.example.jobsearch.model.Job
 import com.example.jobsearch.models.viewmodel.RemoteJobViewModel
 import com.google.android.material.snackbar.Snackbar
 

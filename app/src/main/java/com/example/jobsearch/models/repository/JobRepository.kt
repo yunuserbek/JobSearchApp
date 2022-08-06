@@ -5,10 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.jobsearch.db.FavoriteJabDao
 import com.example.jobsearch.db.FavoriteJobDatabase
-import com.example.jobsearch.models.Job
+import com.example.jobsearch.model.Job
 import com.example.jobsearch.models.JobResponse
 import com.example.jobsearch.models.RetrofitInstance
-import com.example.jobsearch.network.JobResponseIF
 import com.example.jobsearch.utils.Constants.TAG
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,8 +39,8 @@ class JobRepository (private var db :FavoriteJobDatabase){
     fun remoteJobResult():LiveData<JobResponse>{
         return jobResponseLiveData
     }
-    suspend fun addFavoriteJob(job: Job) = db.getFavJobDao().addFavoriteJob(job)
-    suspend fun deleteJob(job:Job) =db.getFavJobDao().deleteFavJob(job)
+    suspend fun addFavoriteJob(job: FavoriteJabDao) = db.getFavJobDao().addFavoriteJob(job)
+    suspend fun deleteJob(job: FavoriteJabDao) =db.getFavJobDao().deleteFavJob(job)
     fun getAllFavJobs() = db.getFavJobDao()
 
 }

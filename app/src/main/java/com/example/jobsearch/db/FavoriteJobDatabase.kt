@@ -4,8 +4,10 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.jobsearch.model.FavoriteJob
+import com.example.jobsearch.model.Job
 
-@Database(entities =[com.example.jobsearch.models.Job::class], version = 1 )
+@Database(entities =[FavoriteJob::class], version = 1 )
 abstract class FavoriteJobDatabase :RoomDatabase() {
     abstract fun getFavJobDao(): FavoriteJabDao
     companion object{

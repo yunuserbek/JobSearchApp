@@ -24,7 +24,7 @@
             app:destination="@id/mainFragment" />
         <argument
             android:name="job"
-            app:argType="com.example.jobsearch.models.Job"
+            app:argType="com.example.jobsearch.model.Job"
             app:nullable="true" />
     </fragment>
 </navigation>
