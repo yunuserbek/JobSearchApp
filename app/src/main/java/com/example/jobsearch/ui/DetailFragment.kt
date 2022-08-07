@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.jobsearch.MainActivity
 import com.example.jobsearch.databinding.FragmentDetailBinding
+import com.example.jobsearch.model.FavoriteJob
 import com.example.jobsearch.model.Job
 import com.example.jobsearch.models.viewmodel.RemoteJobViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -40,9 +41,10 @@ class DetailFragment : Fragment() {
     }
 
     private fun addFavJob(view: View) {
-        val favJob = Job(
+        val favJob = FavoriteJob(
             0,
-            currentJob.candidateRequiredLocation, currentJob.category,
+            currentJob.candidateRequiredLocation,
+            currentJob.category,
             currentJob.companyLogoUrl,
             currentJob.description,
             currentJob.jobType,
@@ -56,7 +58,7 @@ class DetailFragment : Fragment() {
 
         )
         viewModel.addFavJob(favJob)
-        Snackbar.make(view,"job saved  successfully",Snackbar.LENGTH_LONG).show()
+        Snackbar.make(view, "job saved  successfully", Snackbar.LENGTH_LONG).show()
     }
 
     private fun setUpWebView() {
