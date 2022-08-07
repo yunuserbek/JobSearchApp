@@ -1,7 +1,9 @@
 package com.example.jobsearch.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -11,7 +13,7 @@ import com.example.jobsearch.model.FavoriteJob
 import com.example.jobsearch.model.Job
 import com.example.jobsearch.ui.MainFragmentDirections
 
-class FavJobAdapter : RecyclerView.Adapter<FavJobAdapter.RemoJobViewHolder>() {
+class FavJobAdapter constructor(private val itemClick:OnItemClickListener) : RecyclerView.Adapter<FavJobAdapter.RemoJobViewHolder>() {
     private var binding: JobLayoutAdapterBinding? = null
 
     inner class RemoJobViewHolder(itemBinding: JobLayoutAdapterBinding) :
@@ -33,6 +35,7 @@ class FavJobAdapter : RecyclerView.Adapter<FavJobAdapter.RemoJobViewHolder>() {
             binding?.tvJobLocation?.text = currentJob.candidateRequiredLocation
             binding?.tvJobTitle?.text = currentJob.title
             binding?.tvJobType?.text = currentJob.jobType
+            binding?.ibDelete?.visibility =View.VISIBLE
             val dateJob = currentJob.publicationDate?.split("T")
             binding?.tvDate?.text = dateJob?.get(0)
         }.setOnClickListener { mView ->
@@ -53,12 +56,19 @@ class FavJobAdapter : RecyclerView.Adapter<FavJobAdapter.RemoJobViewHolder>() {
             val direction = MainFragmentDirections.actionMainFragmentToDetailFragment(job)
             mView.findNavController().navigate(direction)
 
-
+        }
+        holder.itemView.apply {
+            binding?.ibDelete?.setOnClickListener {
+                itemClick.onItemClick(currentJob,binding?.ibDelete!!,position)
+            }
         }
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
+    }
+    interface OnItemClickListener{
+        fun onItemClick(job: FavoriteJob,view: View,position: Int)
     }
 }
 
