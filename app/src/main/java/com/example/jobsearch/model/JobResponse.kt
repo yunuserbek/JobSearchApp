@@ -1,4 +1,4 @@
-package com.example.jobsearch.models
+package com.example.jobsearch.model
 
 
 import com.example.jobsearch.model.Job

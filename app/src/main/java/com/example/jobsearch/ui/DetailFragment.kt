@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebSettings
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
@@ -11,7 +12,7 @@ import com.example.jobsearch.MainActivity
 import com.example.jobsearch.databinding.FragmentDetailBinding
 import com.example.jobsearch.model.FavoriteJob
 import com.example.jobsearch.model.Job
-import com.example.jobsearch.models.viewmodel.RemoteJobViewModel
+import com.example.jobsearch.viewmodel.RemoteJobViewModel
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -65,6 +66,17 @@ class DetailFragment : Fragment() {
         binding.webView.webViewClient = WebViewClient()
         currentJob.url?.let {
             binding.webView.loadUrl(it)
+        }
+        binding.webView.settings.apply {
+            javaScriptEnabled = true
+            setAppCacheEnabled(true)
+            cacheMode = WebSettings.LOAD_DEFAULT
+            setSupportZoom(false)
+            builtInZoomControls = false
+            displayZoomControls = false
+            textZoom = 100
+            blockNetworkImage = false
+            loadsImagesAutomatically = true
         }
     }
 }

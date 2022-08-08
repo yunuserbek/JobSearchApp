@@ -1,12 +1,10 @@
-package com.example.jobsearch.models
+package com.example.jobsearch.network
 
-import com.example.jobsearch.network.JobResponseIF
 import com.example.jobsearch.utils.Constants.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 class RetrofitInstance {
     companion object{

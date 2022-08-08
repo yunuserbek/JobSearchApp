@@ -13,7 +13,7 @@ import com.example.jobsearch.MainActivity
 import com.example.jobsearch.adapters.FavJobAdapter
 import com.example.jobsearch.databinding.FragmentFavoriteBinding
 import com.example.jobsearch.model.FavoriteJob
-import com.example.jobsearch.models.viewmodel.RemoteJobViewModel
+import com.example.jobsearch.viewmodel.RemoteJobViewModel
 
 
 class FavoriteFragment : Fragment(), FavJobAdapter.OnItemClickListener {

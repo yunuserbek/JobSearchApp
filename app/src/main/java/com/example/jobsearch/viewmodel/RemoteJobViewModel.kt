@@ -1,15 +1,15 @@
-package com.example.jobsearch.models.viewmodel
+package com.example.jobsearch.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.jobsearch.model.FavoriteJob
-import com.example.jobsearch.model.Job
-import com.example.jobsearch.models.repository.JobRepository
+import com.example.jobsearch.repo.JobRepository
 import kotlinx.coroutines.launch
 
 class RemoteJobViewModel(app:Application,
-private val remoteJobRepository:JobRepository):AndroidViewModel(app) {
+private val remoteJobRepository: JobRepository
+):AndroidViewModel(app) {
 
     fun remoteJobResult() = remoteJobRepository.remoteJobResult()
     fun addFavJob(job: FavoriteJob) = viewModelScope.launch {
@@ -20,4 +20,7 @@ private val remoteJobRepository:JobRepository):AndroidViewModel(app) {
     }
     fun getAllFavJobs() = remoteJobRepository.getAllFavJobs()
 
+    fun searchRemote(query:String?) = remoteJobRepository.searchJobResponse(query)
+
+    fun searchResult() = remoteJobRepository.searchJobResult()
 }

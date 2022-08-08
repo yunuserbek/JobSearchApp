@@ -5,13 +5,13 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.jobsearch.databinding.ActivityMainBinding
 import com.example.jobsearch.db.FavoriteJobDatabase
-import com.example.jobsearch.models.repository.JobRepository
-import com.example.jobsearch.models.viewmodel.RemoteJobViewModel
-import com.example.jobsearch.models.viewmodel.RemoteJobViewModelFactory
+import com.example.jobsearch.repo.JobRepository
+import com.example.jobsearch.viewmodel.RemoteJobViewModel
+import com.example.jobsearch.viewmodel.RemoteJobViewModelFactory
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    lateinit var viewModel:RemoteJobViewModel
+    lateinit var viewModel: RemoteJobViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =ActivityMainBinding.inflate(layoutInflater)
